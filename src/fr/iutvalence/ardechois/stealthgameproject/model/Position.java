@@ -11,23 +11,23 @@ public class Position
 {
 
 	/** X coordinate position. */
-	private int x;
+	private int xPosition;
 
 	/** Y coordinate position. */
-	private int y;
+	private int yPosition;
 
 	/**
 	 * Constructor of Position.
 	 * 
-	 * @param x
+	 * @param p_xPosition
 	 *            : position x
-	 * @param y
+	 * @param p_yPosition
 	 *            : position y
 	 */
-	public Position(int x, int y)
+	public Position(int p_xPosition, int p_yPosition)
 	{
-		this.x = x;
-		this.y = y;
+		this.xPosition = p_xPosition;
+		this.yPosition = p_yPosition;
 	}
 
 	/**
@@ -37,7 +37,7 @@ public class Position
 	 */
 	public int getX()
 	{
-		return x;
+		return xPosition;
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class Position
 	 */
 	public int getY()
 	{
-		return y;
+		return yPosition;
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class Position
 	 */
 	public void move(int x, int y)
 	{
-		setPosition(this.x + x, this.y + y);
+		setPosition(this.xPosition + x, this.yPosition + y);
 	}
 	
 	/**
@@ -66,7 +66,7 @@ public class Position
 	 */
 	public void move(Direction direction)
 	{
-		setPosition(this.x + direction.getX(), this.y + direction.getY());
+		setPosition(this.xPosition + direction.getX(), this.yPosition + direction.getY());
 	}
 
 	/**
@@ -76,14 +76,14 @@ public class Position
 	 */
 	public void setPosition(int x, int y)
 	{
-		this.x = x;
-		this.y = y;
+		this.xPosition = x;
+		this.yPosition = y;
 	}
 	
 	@Override
 	public boolean equals(Object position)
 	{
-		if (this.x == ((Position) position).getX() && this.y == ((Position) position).getY())
+		if (this.xPosition == ((Position) position).getX() && this.yPosition == ((Position) position).getY())
 			return true;
 		return false;
 	}
