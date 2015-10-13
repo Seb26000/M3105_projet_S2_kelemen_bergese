@@ -184,12 +184,14 @@ public class Map implements MapGetter
 	 */
 	public Blocks getBlock(Position position) throws InvalidPositionException
 	{
-		if (position.getXPosition() < 0 || position.getYPosition() < 0 || position.getXPosition() >= getMapWidth() || position.getYPosition() >= getMapHeight())
+		int xPosition = position.getXPosition();
+		int yPosition = position.getYPosition();
+		if (xPosition < 0 || yPosition < 0 || xPosition >= getMapWidth() || yPosition >= getMapHeight())
 		{
 			throw new InvalidPositionException();
 		}
 
-		return grid[position.getXPosition()][position.getYPosition()];
+		return grid[xPosition][yPosition];
 	}
 
 	/**
