@@ -88,6 +88,10 @@ public class Map implements MapGetter
 
 		this.grid = new Blocks[width][height];
 
+		mapGridInitialisation();
+	}
+
+	private void mapGridInitialisation() {
 		for (int x = 0; x < getMapWidth(); x++)
 		{
 			for (int y = 0; y < getMapHeight(); y++)
