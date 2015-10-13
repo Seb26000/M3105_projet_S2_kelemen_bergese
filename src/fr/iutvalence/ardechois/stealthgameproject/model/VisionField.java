@@ -71,16 +71,16 @@ public class VisionField
 	 *            The vision field height.
 	 * @param position
 	 *            The vision field position.
-	 * @param initDir
+	 * @param initialDirection
 	 *            The initial vision field direction.
 	 */
 	public VisionField(int width, int height, Position position,
-			Direction initDir)
+			Direction initialDirection)
 	{
 		this.width = width;
 		this.height = height;
 		this.position = position;
-		this.currentDirection = initDir;
+		this.currentDirection = initialDirection;
 	}
 
 	/**
@@ -90,41 +90,42 @@ public class VisionField
 	 */
 	private void rotate(Direction direction)
 	{
+		int temporaryWidth;
 		switch (direction)
 		{
 		case UP:
 				if (this.currentDirection == Direction.RIGHT || this.currentDirection == Direction.LEFT)
 				{
-					int widthTemp = this.width;
+					temporaryWidth = this.width;
 					this.width = this.height;
-					this.height = widthTemp;
+					this.height = temporaryWidth;
 				}
 				this.currentDirection = Direction.UP;
 			break;
 		case DOWN:
 			if (this.currentDirection == Direction.RIGHT || this.currentDirection == Direction.LEFT)
 			{
-				int widthTemp = this.width;
+				temporaryWidth = this.width;
 				this.width = this.height;
-				this.height = widthTemp;
+				this.height = temporaryWidth;
 			}
 			this.currentDirection = Direction.DOWN;
 			break;
 		case LEFT:
 			if (this.currentDirection == Direction.UP || this.currentDirection == Direction.DOWN)
 			{
-				int widthTemp = this.width;
+				temporaryWidth = this.width;
 				this.width = this.height;
-				this.height = widthTemp;
+				this.height = temporaryWidth;
 			}
 			this.currentDirection = Direction.LEFT;
 			break;
 		case RIGHT:
 			if (this.currentDirection == Direction.UP || this.currentDirection == Direction.DOWN)
 			{
-				int widthTemp = this.width;
+				temporaryWidth = this.width;
 				this.width = this.height;
-				this.height = widthTemp;
+				this.height = temporaryWidth;
 			}
 			this.currentDirection = Direction.RIGHT;
 			break;
