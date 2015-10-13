@@ -116,8 +116,10 @@ public class Level implements LevelGetter
 	 */
 	public void updateItem(Player player)
 	{
-		if (player.getPosition().getXPosition() == currentItem.getPosition().getXPosition()
-				&& player.getPosition().getYPosition() == currentItem.getPosition().getYPosition())
+		int xPosition = player.getPosition().getXPosition();
+		int yPosition = player.getPosition().getYPosition();
+		if (xPosition == currentItem.getPosition().getXPosition()
+				&& yPosition == currentItem.getPosition().getYPosition())
 		{
 			currentItem.setTaken(player.getPosition());
 		}
