@@ -52,11 +52,11 @@ public class ActionLaunch extends AbstractAction {
 		{
 		case PLAY:
 			choice = JOptionPane.showInputDialog(frame, "Which map to open? (without extension)", null);
-			SGPController game = new SGPController(choice + ".txt");
+			new SGPController(choice + ".txt");
 			break;
 		case EDITOR:
 			choice = JOptionPane.showInputDialog(frame, "Which map to open? (without extension)", null);
-			Editor editor = new Editor(choice + ".txt");
+			new Editor(choice + ".txt");
 			break;
 		default:
 			
