@@ -120,11 +120,11 @@ public class Enemy
 	 */
 	public void randomMove(Map map)
 	{
-		Random random = new Random();
+		Random randomMoveNumber = new Random();
 		
 		try
 		{
-			move(Direction.getDirection(random.nextInt(4)), map);
+			move(Direction.getDirection(randomMoveNumber.nextInt(4)), map);
 		} catch (InvalidPositionException e)
 		{
 			// Do nothing
