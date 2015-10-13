@@ -65,6 +65,17 @@ public class Enemy
 	 */
 	public void move(Direction direction, Map map) throws InvalidPositionException
 	{
+		checkPositionValidity(direction, map);
+		
+		if(map.getBlock(new Position(this.position.getXPosition() + direction.getX(), this.position.getYPosition()+direction.getY())) != Blocks.WALL && map.getBlock(new Position(this.position.getXPosition() + direction.getX(), this.position.getYPosition()+direction.getY())) != Blocks.WATER)
+			this.position.move(direction);
+		
+		this.visionField.update(direction);
+	}
+
+
+	private void checkPositionValidity(Direction direction, Map map) throws InvalidPositionException 
+	{
 		switch (direction)
 		{
 		case UP:
@@ -84,12 +95,8 @@ public class Enemy
 				throw new InvalidPositionException();
 			break;
 		}
-		
-		if(map.getBlock(new Position(this.position.getXPosition() + direction.getX(), this.position.getYPosition()+direction.getY())) != Blocks.WALL && map.getBlock(new Position(this.position.getXPosition() + direction.getX(), this.position.getYPosition()+direction.getY())) != Blocks.WATER)
-			this.position.move(direction);
-		
-		this.visionField.update(direction);
 	}
+	
 	
 	/**
 	 * Getter for the boolean see.
