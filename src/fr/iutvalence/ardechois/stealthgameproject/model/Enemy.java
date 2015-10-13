@@ -67,7 +67,9 @@ public class Enemy
 	{
 		checkPositionValidity(direction, map);
 		
-		if(map.getBlock(new Position(this.position.getXPosition() + direction.getX(), this.position.getYPosition()+direction.getY())) != Blocks.WALL && map.getBlock(new Position(this.position.getXPosition() + direction.getX(), this.position.getYPosition()+direction.getY())) != Blocks.WATER)
+		int yPosition = this.position.getYPosition();
+		int xPosition = this.position.getXPosition();
+		if(map.getBlock(new Position(xPosition + direction.getX(), yPosition+direction.getY())) != Blocks.WALL && map.getBlock(new Position(xPosition + direction.getX(), yPosition+direction.getY())) != Blocks.WATER)
 			this.position.move(direction);
 		
 		this.visionField.update(direction);
