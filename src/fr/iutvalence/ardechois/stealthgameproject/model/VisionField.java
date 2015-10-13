@@ -42,24 +42,24 @@ public class VisionField
 	 * 
 	 * @see Direction
 	 */
-	private Direction curDirection;
+	private Direction currentDirection;
 
 	/**
 	 * Constructor with a position parameter.
 	 * 
 	 * @param position
 	 *            The vision field position.
-	 * @param initDir
+	 * @param initialDirection
 	 *            The initial vision field direction.
 	 */
-	public VisionField(Position position, Direction initDir)
+	public VisionField(Position position, Direction initialDirection)
 	{
 		this.width = DEFAULT_WIDTH;
 		this.height = DEFAULT_HEIGHT;
-		this.curDirection = Direction.UP;
-		this.rotate(initDir);
+		this.currentDirection = Direction.UP;
+		this.rotate(initialDirection);
 		this.position = position;
-		this.curDirection = initDir;
+		this.currentDirection = initialDirection;
 	}
 
 	/**
@@ -80,7 +80,7 @@ public class VisionField
 		this.width = width;
 		this.height = height;
 		this.position = position;
-		this.curDirection = initDir;
+		this.currentDirection = initDir;
 	}
 
 	/**
@@ -93,40 +93,40 @@ public class VisionField
 		switch (direction)
 		{
 		case UP:
-				if (this.curDirection == Direction.RIGHT || this.curDirection == Direction.LEFT)
+				if (this.currentDirection == Direction.RIGHT || this.currentDirection == Direction.LEFT)
 				{
 					int widthTemp = this.width;
 					this.width = this.height;
 					this.height = widthTemp;
 				}
-				this.curDirection = Direction.UP;
+				this.currentDirection = Direction.UP;
 			break;
 		case DOWN:
-			if (this.curDirection == Direction.RIGHT || this.curDirection == Direction.LEFT)
+			if (this.currentDirection == Direction.RIGHT || this.currentDirection == Direction.LEFT)
 			{
 				int widthTemp = this.width;
 				this.width = this.height;
 				this.height = widthTemp;
 			}
-			this.curDirection = Direction.DOWN;
+			this.currentDirection = Direction.DOWN;
 			break;
 		case LEFT:
-			if (this.curDirection == Direction.UP || this.curDirection == Direction.DOWN)
+			if (this.currentDirection == Direction.UP || this.currentDirection == Direction.DOWN)
 			{
 				int widthTemp = this.width;
 				this.width = this.height;
 				this.height = widthTemp;
 			}
-			this.curDirection = Direction.LEFT;
+			this.currentDirection = Direction.LEFT;
 			break;
 		case RIGHT:
-			if (this.curDirection == Direction.UP || this.curDirection == Direction.DOWN)
+			if (this.currentDirection == Direction.UP || this.currentDirection == Direction.DOWN)
 			{
 				int widthTemp = this.width;
 				this.width = this.height;
 				this.height = widthTemp;
 			}
-			this.curDirection = Direction.RIGHT;
+			this.currentDirection = Direction.RIGHT;
 			break;
 		}
 
@@ -154,7 +154,7 @@ public class VisionField
 			{
 				Position halfSquarePosition = null;
 				Position halfSquarePosition2 = null;
-				switch(this.curDirection)
+				switch(this.currentDirection)
 				{
 				case UP:
 					halfSquarePosition = new Position(this.position.getX() + x/2 , this.position.getY() - y - 1 );
