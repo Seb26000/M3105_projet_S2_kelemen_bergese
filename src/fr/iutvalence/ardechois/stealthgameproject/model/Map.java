@@ -203,12 +203,14 @@ public class Map implements MapGetter
 	 */
 	public void setBlock(Position position, Blocks block) throws InvalidPositionException
 	{
-		if (position.getXPosition() < 0 || position.getYPosition() < 0 || position.getXPosition() >= getMapWidth() || position.getYPosition() >= getMapHeight())
+		int xPosition = position.getXPosition();
+		int yPosition = position.getYPosition();
+		if (xPosition < 0 || yPosition < 0 || xPosition >= getMapWidth() || yPosition >= getMapHeight())
 		{
 			throw new InvalidPositionException();
 		}
 
-		grid[position.getXPosition()][position.getYPosition()] = block;
+		grid[xPosition][yPosition] = block;
 	}
 
 	/**
