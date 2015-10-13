@@ -27,7 +27,7 @@ public class Player implements PlayerGetter
 	 */
 	public Player(Position position)
 	{
-		this.position = new Position(position.getX(), position.getY());
+		this.position = new Position(position.getXPosition(), position.getYPosition());
 	}
 
 	/**
@@ -52,24 +52,24 @@ public class Player implements PlayerGetter
 		switch (direction)
 		{
 		case UP:
-			if (this.position.getY() - 1 < 0)
+			if (this.position.getYPosition() - 1 < 0)
 				throw new InvalidPositionException();
 			break;
 		case DOWN:
-			if (this.position.getY() + 1 >= map.getMapHeight())
+			if (this.position.getYPosition() + 1 >= map.getMapHeight())
 				throw new InvalidPositionException();
 			break;
 		case LEFT:
-			if (this.position.getX() - 1 < 0)
+			if (this.position.getXPosition() - 1 < 0)
 				throw new InvalidPositionException();
 			break;
 		case RIGHT:
-			if (this.position.getX() + 1 >= map.getMapWidth())
+			if (this.position.getXPosition() + 1 >= map.getMapWidth())
 				throw new InvalidPositionException();
 			break;
 		}
 		
-		Blocks nextBlock = map.getBlock(new Position(this.position.getX() + direction.getX(), this.position.getY()+direction.getY()));
+		Blocks nextBlock = map.getBlock(new Position(this.position.getXPosition() + direction.getX(), this.position.getYPosition()+direction.getY()));
 		if(nextBlock != Blocks.WALL && nextBlock != Blocks.WATER)
 			this.position.move(direction);
 	}

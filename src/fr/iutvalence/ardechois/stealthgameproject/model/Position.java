@@ -35,7 +35,7 @@ public class Position
 	 * 
 	 * @return positionX
 	 */
-	public int getX()
+	public int getXPosition()
 	{
 		return xPosition;
 	}
@@ -45,7 +45,7 @@ public class Position
 	 * 
 	 * @return positionY
 	 */
-	public int getY()
+	public int getYPosition()
 	{
 		return yPosition;
 	}
@@ -83,7 +83,7 @@ public class Position
 	@Override
 	public boolean equals(Object position)
 	{
-		if (this.xPosition == ((Position) position).getX() && this.yPosition == ((Position) position).getY())
+		if (this.xPosition == ((Position) position).getXPosition() && this.yPosition == ((Position) position).getYPosition())
 			return true;
 		return false;
 	}

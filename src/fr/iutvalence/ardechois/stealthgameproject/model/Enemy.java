@@ -68,24 +68,24 @@ public class Enemy
 		switch (direction)
 		{
 		case UP:
-			if (this.position.getY() - 1 < 0)
+			if (this.position.getYPosition() - 1 < 0)
 				throw new InvalidPositionException();
 			break;
 		case DOWN:
-			if (this.position.getY() + 1 >= map.getMapHeight())
+			if (this.position.getYPosition() + 1 >= map.getMapHeight())
 				throw new InvalidPositionException();
 			break;
 		case LEFT:
-			if (this.position.getX() - 1 < 0)
+			if (this.position.getXPosition() - 1 < 0)
 				throw new InvalidPositionException();
 			break;
 		case RIGHT:
-			if (this.position.getX() + 1 >= map.getMapWidth())
+			if (this.position.getXPosition() + 1 >= map.getMapWidth())
 				throw new InvalidPositionException();
 			break;
 		}
 		
-		if(map.getBlock(new Position(this.position.getX() + direction.getX(), this.position.getY()+direction.getY())) != Blocks.WALL && map.getBlock(new Position(this.position.getX() + direction.getX(), this.position.getY()+direction.getY())) != Blocks.WATER)
+		if(map.getBlock(new Position(this.position.getXPosition() + direction.getX(), this.position.getYPosition()+direction.getY())) != Blocks.WALL && map.getBlock(new Position(this.position.getXPosition() + direction.getX(), this.position.getYPosition()+direction.getY())) != Blocks.WATER)
 			this.position.move(direction);
 		
 		this.visionField.update(direction);

@@ -140,22 +140,22 @@ public class DisplayMap extends JPanel
 			}
 		}
 		
-		g.drawImage(((ImageIcon) spawnIcon).getImage(), mapGetter.getSpawnPosition().getX() * rectWidth, mapGetter.getSpawnPosition().getY() * rectHeight, null);
+		g.drawImage(((ImageIcon) spawnIcon).getImage(), mapGetter.getSpawnPosition().getXPosition() * rectWidth, mapGetter.getSpawnPosition().getYPosition() * rectHeight, null);
 		
 		ArrayList<Position> enemiesPositions = levelGetter.getEnemiesPositions();
 		
 		for(Position currentPos : enemiesPositions)
 		{
-			g.drawImage(((ImageIcon) enemyIcon).getImage(), currentPos.getX() * rectWidth, currentPos.getY() * rectHeight, null);
+			g.drawImage(((ImageIcon) enemyIcon).getImage(), currentPos.getXPosition() * rectWidth, currentPos.getYPosition() * rectHeight, null);
 		}
 		
-		g.drawImage(((ImageIcon) itemIcon).getImage(), levelGetter.getItemPosition().getX() *rectWidth,  levelGetter.getItemPosition().getY() *rectHeight, null);
+		g.drawImage(((ImageIcon) itemIcon).getImage(), levelGetter.getItemPosition().getXPosition() *rectWidth,  levelGetter.getItemPosition().getYPosition() *rectHeight, null);
 
 		if (playerGetter != null)
 		{
-			Position playerPosition = new Position(playerGetter.getPosition().getX() * rectWidth, playerGetter.getPosition().getY()
+			Position playerPosition = new Position(playerGetter.getPosition().getXPosition() * rectWidth, playerGetter.getPosition().getYPosition()
 					* rectHeight);
-			g.drawImage(((ImageIcon) playerIcon).getImage(), playerPosition.getX(), playerPosition.getY(), null);
+			g.drawImage(((ImageIcon) playerIcon).getImage(), playerPosition.getXPosition(), playerPosition.getYPosition(), null);
 		}
 	}
 

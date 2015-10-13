@@ -180,12 +180,12 @@ public class Map implements MapGetter
 	 */
 	public Blocks getBlock(Position position) throws InvalidPositionException
 	{
-		if (position.getX() < 0 || position.getY() < 0 || position.getX() >= getMapWidth() || position.getY() >= getMapHeight())
+		if (position.getXPosition() < 0 || position.getYPosition() < 0 || position.getXPosition() >= getMapWidth() || position.getYPosition() >= getMapHeight())
 		{
 			throw new InvalidPositionException();
 		}
 
-		return grid[position.getX()][position.getY()];
+		return grid[position.getXPosition()][position.getYPosition()];
 	}
 
 	/**
@@ -197,12 +197,12 @@ public class Map implements MapGetter
 	 */
 	public void setBlock(Position position, Blocks block) throws InvalidPositionException
 	{
-		if (position.getX() < 0 || position.getY() < 0 || position.getX() >= getMapWidth() || position.getY() >= getMapHeight())
+		if (position.getXPosition() < 0 || position.getYPosition() < 0 || position.getXPosition() >= getMapWidth() || position.getYPosition() >= getMapHeight())
 		{
 			throw new InvalidPositionException();
 		}
 
-		grid[position.getX()][position.getY()] = block;
+		grid[position.getXPosition()][position.getYPosition()] = block;
 	}
 
 	/**
@@ -306,17 +306,17 @@ public class Map implements MapGetter
 			}
 			
 			// Save spawn position
-			fileWriter.write(spawnPosition.getX());
-			fileWriter.write(spawnPosition.getY());
+			fileWriter.write(spawnPosition.getXPosition());
+			fileWriter.write(spawnPosition.getYPosition());
 			
 			//Save item position
-			fileWriter.write(itemPosition.getX());
-			fileWriter.write(itemPosition.getY());
+			fileWriter.write(itemPosition.getXPosition());
+			fileWriter.write(itemPosition.getYPosition());
 			
 			for(Position pos : enemiesPositions)
 			{
-				fileWriter.write(pos.getX());
-				fileWriter.write(pos.getY());
+				fileWriter.write(pos.getXPosition());
+				fileWriter.write(pos.getYPosition());
 			}
 
 			fileWriter.close();

@@ -155,22 +155,24 @@ public class VisionField
 			{
 				Position halfSquarePosition = null;
 				Position halfSquarePosition2 = null;
+				int xPosition = this.position.getXPosition();
+				int yPosition = this.position.getYPosition();
 				switch(this.currentDirection)
 				{
 				case UP:
-					halfSquarePosition = new Position(this.position.getX() + x/2 , this.position.getY() - y - 1 );
-					halfSquarePosition2 = new Position(this.position.getX() - x/2 , this.position.getY() - y - 1 );
+					halfSquarePosition = new Position(xPosition + x/2 , yPosition - y - 1 );
+					halfSquarePosition2 = new Position(xPosition - x/2 , yPosition - y - 1 );
 				case DOWN:
-					halfSquarePosition = new Position(this.position.getX() + x/2 , this.position.getY() + y - 1 );
-					halfSquarePosition2 = new Position(this.position.getX() - x/2 , this.position.getY() + y - 1 );
+					halfSquarePosition = new Position(xPosition + x/2 , yPosition + y - 1 );
+					halfSquarePosition2 = new Position(xPosition - x/2 , yPosition + y - 1 );
 					break;
 				case RIGHT:
-					halfSquarePosition = new Position(this.position.getX() + x + 1 , this.position.getY() + y/2 );
-					halfSquarePosition2 = new Position(this.position.getX() + x + 1 , this.position.getY() - y/2 );
+					halfSquarePosition = new Position(xPosition + x + 1 , yPosition + y/2 );
+					halfSquarePosition2 = new Position(xPosition + x + 1 , yPosition - y/2 );
 					break;
 				case LEFT:
-					halfSquarePosition = new Position(this.position.getX() - x - 1 , this.position.getY() + y/2 );
-					halfSquarePosition2 = new Position(this.position.getX() - x - 1 , this.position.getY() - y/2 );
+					halfSquarePosition = new Position(xPosition - x - 1 , yPosition + y/2 );
+					halfSquarePosition2 = new Position(xPosition - x - 1 , yPosition - y/2 );
 					break;
 				}
 

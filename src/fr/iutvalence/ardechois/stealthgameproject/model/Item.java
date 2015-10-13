@@ -52,7 +52,7 @@ public class Item
 	 */
 	public void setPosition(Position position)
 	{
-		this.position = new Position(position.getX(), position.getY());
+		this.position = new Position(position.getXPosition(), position.getYPosition());
 	}
 
 	/**

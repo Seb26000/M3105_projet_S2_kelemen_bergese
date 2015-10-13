@@ -116,8 +116,8 @@ public class Level implements LevelGetter
 	 */
 	public void updateItem(Player player)
 	{
-		if (player.getPosition().getX() == currentItem.getPosition().getX()
-				&& player.getPosition().getY() == currentItem.getPosition().getY())
+		if (player.getPosition().getXPosition() == currentItem.getPosition().getXPosition()
+				&& player.getPosition().getYPosition() == currentItem.getPosition().getYPosition())
 		{
 			currentItem.setTaken(player.getPosition());
 		}
@@ -130,8 +130,8 @@ public class Level implements LevelGetter
 	 */
 	public boolean hasWon(Player player)
 	{
-		return (currentItem.isTaken() && (currentMap.getSpawnPosition().getX() == player.getPosition().getX() && currentMap
-				.getSpawnPosition().getY() == player.getPosition().getY()));
+		return (currentItem.isTaken() && (currentMap.getSpawnPosition().getXPosition() == player.getPosition().getXPosition() && currentMap
+				.getSpawnPosition().getYPosition() == player.getPosition().getYPosition()));
 	}
 
 	@Override
@@ -167,7 +167,7 @@ public class Level implements LevelGetter
 		boolean exists = false;
 		for (Enemy enemy : enemyList)
 		{
-			if(enemy.getPosition().getX() == position.getX() && enemy.getPosition().getY() == position.getY())
+			if(enemy.getPosition().getXPosition() == position.getXPosition() && enemy.getPosition().getYPosition() == position.getYPosition())
 			{
 				exists = true;
 				enemyList.remove(enemy);
@@ -176,7 +176,7 @@ public class Level implements LevelGetter
 		}
 
 		if(!exists)
-			enemyList.add(new Enemy(new Position(position.getX(), position.getY()), Direction.UP));
+			enemyList.add(new Enemy(new Position(position.getXPosition(), position.getYPosition()), Direction.UP));
 	}
 
 	/**
